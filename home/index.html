@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SXYPAG Order System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">ORDER</a></li>
+                <li><a href="#">TRANSACTIONS</a></li>
+                <li><a href="#">SUPPLY</a></li>
+                <li><a href="#">PRODUCTS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="order-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Amount</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="order-list">
+                    <tr>
+                        <td><input type="number" value="1" min="1"></td>
+                        <td><input type="text" placeholder="Enter product name"></td>
+                        <td><input type="number" placeholder="Enter price"></td>
+                        <td>
+                            <button class="remove-btn">✖</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="add-row-btn">+</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
