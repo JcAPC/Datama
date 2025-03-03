@@ -1,0 +1,80 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+nav {
+    background: #222;
+    padding: 15px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Order Section */
+.order-section {
+    width: 80%;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Buttons */
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-row-btn {
+    background: #28a745;
+    color: white;
+    margin-top: 10px;
+    display: block;
+}
+
+.remove-btn {
+    background: #dc3545;
+    color: white;
+}
