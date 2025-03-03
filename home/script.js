@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const newRow = document.createElement("tr");
 
         newRow.innerHTML = `
-            <td><input type="number" value="1" min="1"></td>
-            <td><input type="text" placeholder="Enter product name"></td>
-            <td><input type="number" placeholder="Enter price"></td>
-            <td><button class="remove-btn">✖</button></td>
+            <td><input type="number" class="form-control" value="1" min="1"></td>
+            <td><input type="text" class="form-control" placeholder="Enter product name"></td>
+            <td><input type="number" class="form-control" placeholder="Enter price"></td>
+            <td><button class="btn btn-danger remove-btn">✖</button></td>
         `;
 
         orderList.appendChild(newRow);
