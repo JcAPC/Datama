@@ -1,61 +1,69 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Handle tab switching
-    const navLinks = document.querySelectorAll(".nav-link");
-    const sections = document.querySelectorAll(".content-tab");
-
-    function showTab(targetTab) {
-        sections.forEach(section => section.classList.remove("active"));
-        document.getElementById(targetTab).classList.add("active");
-
-        navLinks.forEach(link => link.classList.remove("active"));
-        document.querySelector(`[data-tab="${targetTab}"]`).classList.add("active");
-    }
-
-    navLinks.forEach(link => {
-        link.addEventListener("click", function(e) {
-            e.preventDefault();
-            showTab(this.getAttribute("data-tab"));
-        });
-    });
-
-    // Add row functionality for Orders
-    document.getElementById('add-row-btn').addEventListener('click', function() {
-        const orderList = document.getElementById('order-list');
-        const newRow = document.createElement('tr');
-        newRow.innerHTML = `
-            <td><input type="number" class="form-control" value="1" min="1"></td>
-            <td><input type="text" class="form-control" placeholder="Enter product name"></td>
-            <td><input type="number" class="form-control" placeholder="Enter price"></td>
-            <td><button class="btn btn-danger remove-btn">✖</button></td>
-        `;
-        orderList.appendChild(newRow);
-
-        newRow.querySelector('.remove-btn').addEventListener('click', function() {
-            newRow.remove();
-        });
-    });
-
-    // Initialize Products & Supply System
+document.addEventListener("DOMContentLoaded", function () {
+    // Initial product list
     const products = [
-        { name: "Coke", stock: 50, price: 20, customerPrice: 25 },
-        { name: "Pepsi", stock: 40, price: 18, customerPrice: 23 },
-        { name: "Gas Tank", stock: 10, price: 500, customerPrice: 550 }
+        { name: "Coke", stock: 50, supplierPrice: 15, customerPrice: 25 },
+        { name: "Pepsi", stock: 40, supplierPrice: 14, customerPrice: 23 },
+        { name: "Gas Tank", stock: 10, supplierPrice: 480, customerPrice: 550 }
     ];
 
+    // Function to update the product table
     function updateProductList() {
         const productList = document.getElementById("product-list");
         productList.innerHTML = "";
-        products.forEach(product => {
+        products.forEach((product, index) => {
             const row = document.createElement("tr");
             row.innerHTML = `
                 <td>${product.name}</td>
-                <td>${product.stock}</td>
-                <td>${product.price}</td>
+                <td id="stock-${index}">${product.stock}</td>
+                <td id="supplier-price-${index}">${product.supplierPrice}</td>
                 <td>${product.customerPrice}</td>
             `;
             productList.appendChild(row);
         });
     }
+
+    // Function to add a supply transaction and update stock
+    function addSupplyTransaction(productName, quantity, price) {
+        const supplyTransactionsList = document.getElementById("supply-transactions");
+
+        // Find the product
+        const product = products.find(p => p.name.toLowerCase() === productName.toLowerCase());
+
+        if (!product) {
+            alert("Product not found!");
+            return;
+        }
+
+        // Update stock and supplier price
+        product.stock += parseInt(quantity);
+        product.supplierPrice = parseFloat(price); // Update supplier price
+        updateProductList();
+
+        // Add transaction entry
+        const listItem = document.createElement("li");
+        listItem.textContent = `Supplied ${quantity} units of ${productName} at $${price} each.`;
+        supplyTransactionsList.appendChild(listItem);
+    }
+
+    // Handle form submission for supply transactions
+    document.getElementById("supply-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const productName = document.getElementById("supply-product").value.trim();
+        const quantity = document.getElementById("supply-quantity").value;
+        const price = document.getElementById("supply-price").value;
+
+        if (productName && quantity > 0 && price > 0) {
+            addSupplyTransaction(productName, quantity, price);
+
+            // Clear form inputs
+            document.getElementById("supply-product").value = "";
+            document.getElementById("supply-quantity").value = "";
+            document.getElementById("supply-price").value = "";
+        } else {
+            alert("Please enter valid values!");
+        }
+    });
 
     updateProductList();
 });

@@ -10,6 +10,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <!-- Navbar -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -25,14 +26,15 @@
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main class="container mt-4">
-        <!-- Home -->
+        <!-- Home Section -->
         <section id="home" class="content-tab active">
             <h1>Welcome to SXYPAG Order System</h1>
             <p>Manage orders, track transactions, monitor supply, and browse products efficiently.</p>
         </section>
 
-        <!-- Order -->
+        <!-- Order Section -->
         <section id="order" class="content-tab">
             <h2>Place an Order</h2>
             <table class="table table-striped">
@@ -49,28 +51,41 @@
             <button id="add-row-btn" class="btn btn-light">+ Add Row</button>
         </section>
 
-        <!-- Transactions -->
+        <!-- Transactions Section -->
         <section id="transactions" class="content-tab">
             <h2>Transactions</h2>
+
             <h4>Customer Receipts</h4>
             <ul id="customer-receipts"></ul>
+
+            <h4>Supply Customer Receipts</h4>
+            <ul id="supply-customer-receipts"></ul>
+
+            <h4>Supply Transactions</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="supply-form" class="mb-3">
+                        <input type="text" id="supply-product" class="form-control mb-2" placeholder="Enter product name" required>
+                        <input type="number" id="supply-quantity" class="form-control mb-2" placeholder="Enter quantity" min="1" required>
+                        <input type="number" id="supply-price" class="form-control mb-2" placeholder="Enter supplier price" min="1" required>
+                        <button type="submit" class="btn btn-success w-100">Add Supply Transaction</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <ul id="supply-transactions" class="list-group"></ul>
+                </div>
+            </div>
         </section>
 
-        <!-- Supply -->
-        <section id="supply" class="content-tab">
-            <h2>Supply Status</h2>
-            <p>Current available stock will be shown here.</p>
-        </section>
-
-        <!-- Products -->
+        <!-- Products Section -->
         <section id="products" class="content-tab">
             <h2>Available Products</h2>
-            <table class="table">
-                <thead>
+            <table class="table table-bordered">
+                <thead class="table-dark">
                     <tr>
                         <th>Product</th>
                         <th>Stock</th>
-                        <th>Price</th>
+                        <th>Supplier Price</th>
                         <th>Customer Price</th>
                     </tr>
                 </thead>
