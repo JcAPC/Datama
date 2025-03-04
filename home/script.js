@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Handle tab switching
     const navLinks = document.querySelectorAll(".nav-link");
     const sections = document.querySelectorAll(".content-tab");
-    const introSection = document.getElementById("intro-section");
 
     function showTab(targetTab) {
         // Hide all sections
@@ -10,9 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Show only the selected one
         document.getElementById(targetTab).classList.add("active");
-
-        // Hide introduction section when any tab is clicked
-        introSection.style.display = "none";
 
         // Remove active class from all links and add to the clicked one
         navLinks.forEach(link => link.classList.remove("active"));
