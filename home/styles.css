@@ -33,9 +33,14 @@ body {
     animation: fadeIn 0.5s ease-in-out;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Show active tab */
+.content-tab.active {
+    display: block;
+}
+
+/* Intro section */
+#intro-section {
+    display: block;
 }
 
 /* Button Styling */
@@ -58,4 +63,10 @@ body {
 .table th {
     background-color: #343a40;
     color: white;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

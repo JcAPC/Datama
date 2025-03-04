@@ -4,21 +4,25 @@ document.addEventListener("DOMContentLoaded", function() {
     const sections = document.querySelectorAll(".content-tab");
     const introSection = document.getElementById("intro-section");
 
+    function showTab(targetTab) {
+        // Hide all sections
+        sections.forEach(section => section.classList.remove("active"));
+
+        // Show only the selected one
+        document.getElementById(targetTab).classList.add("active");
+
+        // Hide introduction section when any tab is clicked
+        introSection.style.display = "none";
+
+        // Remove active class from all links and add to the clicked one
+        navLinks.forEach(link => link.classList.remove("active"));
+        document.querySelector(`[data-tab="${targetTab}"]`).classList.add("active");
+    }
+
     navLinks.forEach(link => {
         link.addEventListener("click", function(e) {
             e.preventDefault();
-            const targetTab = this.getAttribute("data-tab");
-
-            // Hide all sections and show only the selected one
-            sections.forEach(section => section.style.display = "none");
-            document.getElementById(targetTab).style.display = "block";
-
-            // Hide introduction section when any tab is clicked
-            introSection.style.display = "none";
-
-            // Remove active class from all links and add to the clicked one
-            navLinks.forEach(link => link.classList.remove("active"));
-            this.classList.add("active");
+            showTab(this.getAttribute("data-tab"));
         });
     });
 
