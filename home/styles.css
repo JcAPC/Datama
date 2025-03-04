@@ -50,6 +50,22 @@ body {
     text-align: center;
 }
 
+/* Order Section */
+.table {
+    text-align: center;
+    margin-top: 10px;
+    background: white;
+}
+
+.table th {
+    background-color: #343a40;
+    color: white;
+}
+
+.order-product, .order-amount {
+    width: 100%;
+}
+
 /* Buttons */
 .btn-light {
     background-color: white;
@@ -62,23 +78,11 @@ body {
     background-color: #e0e0e0;
 }
 
-/* Table Styling */
-.table {
-    text-align: center;
-    margin-top: 10px;
-    background: white;
+/* Supply Transactions */
+#supply-transactions {
+    margin-top: 15px;
 }
 
-.table th {
-    background-color: #343a40;
-    color: white;
-}
-
-.table td, .table th {
-    padding: 10px;
-}
-
-/* Transaction List */
 .list-group-item {
     background: white;
     color: black;
