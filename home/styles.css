@@ -23,14 +23,15 @@ body {
     text-shadow: 0px 0px 10px #ffffff;
 }
 
-/* Sections */
-.container {
-    max-width: 900px;
-}
-
+/* Tabs */
 .content-tab {
     display: none;
     animation: fadeIn 0.5s ease-in-out;
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Show active tab */
@@ -43,7 +44,7 @@ body {
     display: block;
 }
 
-/* Button Styling */
+/* Buttons */
 .btn-light {
     background-color: white;
     color: black;
@@ -55,7 +56,7 @@ body {
     background-color: #e0e0e0;
 }
 
-/* Table Styling */
+/* Table */
 .table {
     margin-top: 10px;
 }
@@ -65,7 +66,7 @@ body {
     color: white;
 }
 
-/* Animation */
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }

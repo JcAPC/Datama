@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <a href="#" class="navbar-brand fst-italic text-white" data-tab="home">SXYPAG</a>
                 <ul class="navbar-nav mx-auto d-flex flex-row gap-4">
-                    <li class="nav-item"><a class="nav-link" href="#" data-tab="home">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#" data-tab="home">HOME</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-tab="order">ORDER</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-tab="transactions">TRANSACTIONS</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-tab="supply">SUPPLY</a></li>
@@ -26,12 +26,14 @@
     </header>
 
     <main class="container mt-4">
-        <section id="home" class="content-tab active p-4 bg-white rounded shadow">
+        <!-- Home -->
+        <section id="home" class="content-tab active">
             <h1>Welcome to SXYPAG Order System</h1>
             <p>Manage orders, track transactions, monitor supply, and browse products efficiently.</p>
         </section>
 
-        <section id="order" class="content-tab p-4 bg-white rounded shadow">
+        <!-- Order -->
+        <section id="order" class="content-tab">
             <h2>Place an Order</h2>
             <table class="table table-striped">
                 <thead>
@@ -42,31 +44,38 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody id="order-list">
-                    <tr>
-                        <td><input type="number" class="form-control" value="1" min="1"></td>
-                        <td><input type="text" class="form-control" placeholder="Enter product name"></td>
-                        <td><input type="number" class="form-control" placeholder="Enter price"></td>
-                        <td><button class="btn btn-danger remove-btn">✖</button></td>
-                    </tr>
-                </tbody>
+                <tbody id="order-list"></tbody>
             </table>
             <button id="add-row-btn" class="btn btn-light">+ Add Row</button>
         </section>
 
-        <section id="transactions" class="content-tab p-4 bg-white rounded shadow">
+        <!-- Transactions -->
+        <section id="transactions" class="content-tab">
             <h2>Transactions</h2>
-            <p>List of past transactions will be displayed here.</p>
+            <h4>Customer Receipts</h4>
+            <ul id="customer-receipts"></ul>
         </section>
 
-        <section id="supply" class="content-tab p-4 bg-white rounded shadow">
+        <!-- Supply -->
+        <section id="supply" class="content-tab">
             <h2>Supply Status</h2>
             <p>Current available stock will be shown here.</p>
         </section>
 
-        <section id="products" class="content-tab p-4 bg-white rounded shadow">
+        <!-- Products -->
+        <section id="products" class="content-tab">
             <h2>Available Products</h2>
-            <p>List of products available for purchase.</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Stock</th>
+                        <th>Price</th>
+                        <th>Customer Price</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list"></tbody>
+            </table>
         </section>
     </main>
 </body>
