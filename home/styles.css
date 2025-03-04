@@ -1,15 +1,15 @@
 /* General Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background: linear-gradient(to right, #2c3e50, #4ca1af); /* Soft gradient */
+    color: white;
     margin: 0;
     padding: 0;
 }
 
-/* Navigation Bar */
+/* Navbar */
 .navbar {
     background-color: #343a40 !important;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-nav .nav-link {
@@ -19,25 +19,22 @@ body {
     transition: color 0.3s ease-in-out;
 }
 
-.navbar-nav .nav-link::after {
+/* Lightsaber Effect */
+.nav-link::after {
     content: "";
-    position: absolute;
-    width: 0;
+    display: block;
     height: 3px;
-    background: #00ff00; /* Green lightsaber color */
-    left: 50%;
+    width: 0;
+    background: white;
+    position: absolute;
     bottom: -5px;
-    transition: all 0.3s ease-in-out;
-    transform: translateX(-50%);
+    left: 50%;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
 
-.navbar-nav .nav-link:hover::after,
-.navbar-nav .nav-link.active::after {
+.nav-link:hover::after {
     width: 100%;
-}
-
-.navbar-nav .nav-link:hover {
-    color: #00ff00 !important;
+    left: 0;
 }
 
 /* Main Sections */
@@ -45,26 +42,42 @@ body {
     max-width: 900px;
 }
 
-/* Page Headers */
-h1, h2 {
-    color: #343a40;
-}
-
-/* Section Styling */
-section {
-    background: white;
-    padding: 20px;
+/* Introduction Section */
+.intro-section {
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    margin-top: 20px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
 }
 
-section.active {
-    opacity: 1;
-    transform: translateY(0);
+.intro-section img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.btn-success {
+    background-color: white;
+    color: black;
+    border: none;
+    transition: background 0.3s;
+}
+
+.btn-success:hover {
+    background-color: #dcdcdc;
+}
+
+.btn-danger {
+    background-color: #ff4d4d;
+    border: none;
+    transition: background 0.3s;
+}
+
+.btn-danger:hover {
+    background-color: #cc0000;
 }
 
 /* Table Styling */
@@ -77,34 +90,16 @@ section.active {
     color: white;
 }
 
-/* Buttons */
-.btn-success {
-    background-color: #28a745;
-    border: none;
-    transition: background 0.3s;
-}
-
-.btn-success:hover {
-    background-color: #218838;
-}
-
-.btn-danger {
-    background-color: #dc3545;
-    border: none;
-    transition: background 0.3s;
-}
-
-.btn-danger:hover {
-    background-color: #c82333;
-}
-
-/* Input Fields */
-input[type="text"],
-input[type="number"] {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive Design */
