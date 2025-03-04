@@ -1,26 +1,20 @@
 /* General Styling */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #2c3e50, #4ca1af);
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #2C3E50, #3498DB);
+    color: white;
     margin: 0;
     padding: 0;
-    color: white;
 }
 
-/* Navigation Bar */
+/* Navbar */
 .navbar {
-    background-color: #1c1c1c !important;
+    background-color: #1C2833 !important;
 }
 
-.navbar-nav .nav-link {
-    color: white !important;
+.navbar-brand {
+    font-size: 24px;
     font-weight: bold;
-    transition: all 0.3s ease-in-out;
-}
-
-.navbar-nav .nav-link:hover, .nav-link.active {
-    color: #ffffff !important;
-    text-shadow: 0px 0px 10px #ffffff;
 }
 
 /* Sections */
@@ -28,45 +22,34 @@ body {
     max-width: 900px;
 }
 
-.content-tab {
-    display: none;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-/* Show active tab */
-.content-tab.active {
-    display: block;
-}
-
-/* Home Page */
-#home {
-    display: block;
-}
-
-/* Button Styling */
-.btn-light {
-    background-color: white;
+section {
+    background: white;
     color: black;
-    border: none;
-    transition: all 0.3s ease-in-out;
-}
-
-.btn-light:hover {
-    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 /* Table Styling */
-.table {
-    margin-top: 10px;
-}
-
 .table th {
-    background-color: #343a40;
+    background-color: #1C2833;
     color: white;
 }
 
-/* Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Buttons */
+.btn-success {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+}
+
+.btn-danger {
+    background-color: red;
+    border: none;
+}
+
+/* Hide Sections Initially */
+.hidden {
+    display: none;
 }

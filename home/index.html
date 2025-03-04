@@ -5,68 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SXYPAG Order System</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a href="#" class="navbar-brand fst-italic text-white" data-tab="home">SXYPAG</a>
-                <ul class="navbar-nav mx-auto d-flex flex-row gap-4">
-                    <li class="nav-item"><a class="nav-link" href="#" data-tab="home">HOME</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-tab="order">ORDER</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-tab="transactions">TRANSACTIONS</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-tab="supply">SUPPLY</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-tab="products">PRODUCTS</a></li>
+                <a href="index.html" class="navbar-brand">SXYPAG</a>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showTab('order')">ORDER</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showTab('transactions')">TRANSACTIONS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showTab('supply')">SUPPLY</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showTab('products')">PRODUCTS</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
     <main class="container mt-4">
-        <section id="home" class="content-tab active p-4 bg-white rounded shadow">
+        <!-- Introduction Section -->
+        <section id="home">
             <h1>Welcome to SXYPAG Order System</h1>
-            <p>Manage orders, track transactions, monitor supply, and browse products efficiently.</p>
+            <p>Manage your orders, transactions, and inventory efficiently.</p>
         </section>
 
-        <section id="order" class="content-tab p-4 bg-white rounded shadow">
-            <h2>Place an Order</h2>
-            <table class="table table-striped">
+        <!-- Order Section -->
+        <section id="order" class="hidden">
+            <h2>Order Products</h2>
+            <table class="table">
                 <thead>
                     <tr>
-                        <th>Amount</th>
-                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Product Name</th>
                         <th>Price</th>
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody id="order-list">
-                    <tr>
-                        <td><input type="number" class="form-control" value="1" min="1"></td>
-                        <td><input type="text" class="form-control" placeholder="Enter product name"></td>
-                        <td><input type="number" class="form-control" placeholder="Enter price"></td>
-                        <td><button class="btn btn-danger remove-btn">✖</button></td>
-                    </tr>
-                </tbody>
+                <tbody id="order-list"></tbody>
             </table>
-            <button id="add-row-btn" class="btn btn-light">+ Add Row</button>
+            <button id="add-row-btn" class="btn btn-success">Add Row</button>
         </section>
 
-        <section id="transactions" class="content-tab p-4 bg-white rounded shadow">
-            <h2>Transactions</h2>
-            <p>List of past transactions will be displayed here.</p>
+        <!-- Transactions Section -->
+        <section id="transactions" class="hidden">
+            <h2>Customer Receipts</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Receipt No.</th>
+                        <th>Customer Name</th>
+                        <th>Items</th>
+                        <th>Total Price</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="customer-receipts"></tbody>
+            </table>
+
+            <h2>Supply Transactions</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Supplier</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="supply-transactions"></tbody>
+            </table>
         </section>
 
-        <section id="supply" class="content-tab p-4 bg-white rounded shadow">
-            <h2>Supply Status</h2>
-            <p>Current available stock will be shown here.</p>
-        </section>
-
-        <section id="products" class="content-tab p-4 bg-white rounded shadow">
+        <!-- Products Section -->
+        <section id="products" class="hidden">
             <h2>Available Products</h2>
-            <p>List of products available for purchase.</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Wholesale Price</th>
+                        <th>Customer Price</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list"></tbody>
+            </table>
         </section>
     </main>
 </body>
