@@ -8,19 +8,20 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="navbar-brand">SXYPAG</a>
-            <ul class="nav-links">
-                <li><a href="#" class="tab-link active" data-tab="home">HOME</a></li>
-                <li><a href="#" class="tab-link" data-tab="order">ORDER</a></li>
-                <li><a href="#" class="tab-link" data-tab="transactions">TRANSACTIONS</a></li>
-                <li><a href="#" class="tab-link" data-tab="supply">SUPPLY</a></li>
-                <li><a href="#" class="tab-link" data-tab="products">PRODUCTS</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="navbar-brand">SXYPAG</a>
+                <ul class="nav-links">
+                    <li><a href="#" class="tab-link active" data-tab="home" aria-label="Home">HOME</a></li>
+                    <li><a href="#" class="tab-link" data-tab="order" aria-label="Order">ORDER</a></li>
+                    <li><a href="#" class="tab-link" data-tab="transactions" aria-label="Transactions">TRANSACTIONS</a></li>
+                    <li><a href="#" class="tab-link" data-tab="supply" aria-label="Supply">SUPPLY</a></li>
+                    <li><a href="#" class="tab-link" data-tab="products" aria-label="Products">PRODUCTS</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <main class="container">
         <section id="home" class="tab-content active">
@@ -47,7 +48,29 @@
         <section id="transactions" class="tab-content">
             <h2>Transactions</h2>
             <h3>Customer Receipts</h3>
-            <p>List of past customer receipts will be displayed here.</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Receipt ID</th>
+                        <th>Customer Name</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="receipt-list"></tbody>
+            </table>
+            <h3>Supply Transactions</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Supplier Name</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="supply-list"></tbody>
+            </table>
         </section>
 
         <section id="supply" class="tab-content">
@@ -70,8 +93,12 @@
                 </thead>
                 <tbody id="product-list"></tbody>
             </table>
+            <button id="add-product-btn" class="btn btn-success">Add Product</button>
         </section>
     </main>
 
+    <footer>
+        <p>&copy; 2023 SXYPAG. All rights reserved.</p>
+    </footer>
 </body>
 </html>
