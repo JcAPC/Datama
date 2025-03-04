@@ -9,16 +9,35 @@ body {
 /* Navigation Bar */
 .navbar {
     background-color: #343a40 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-nav .nav-link {
     color: white !important;
     font-weight: bold;
+    position: relative;
     transition: color 0.3s ease-in-out;
 }
 
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #00ff00; /* Green lightsaber color */
+    left: 50%;
+    bottom: -5px;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
 .navbar-nav .nav-link:hover {
-    color: #17a2b8 !important;
+    color: #00ff00 !important;
 }
 
 /* Main Sections */
@@ -38,6 +57,14 @@ section {
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+section.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Table Styling */
