@@ -12,6 +12,11 @@ body {
     background-color: #1c1c1c !important;
 }
 
+.navbar-nav {
+    margin: auto;
+    justify-content: center;
+}
+
 .navbar-nav .nav-link {
     color: white !important;
     font-weight: bold;
@@ -42,6 +47,7 @@ body {
 /* Home Page */
 #home {
     display: block;
+    text-align: center;
 }
 
 /* Buttons */
@@ -56,14 +62,53 @@ body {
     background-color: #e0e0e0;
 }
 
-/* Table */
+/* Table Styling */
 .table {
+    text-align: center;
     margin-top: 10px;
+    background: white;
 }
 
 .table th {
     background-color: #343a40;
     color: white;
+}
+
+.table td, .table th {
+    padding: 10px;
+}
+
+/* Transaction List */
+.list-group-item {
+    background: white;
+    color: black;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    padding: 10px;
+}
+
+/* Centering Content */
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Form Styling */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.btn-success:hover {
+    background-color: #218838;
 }
 
 /* Animations */

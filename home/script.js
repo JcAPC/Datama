@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
             row.innerHTML = `
                 <td>${product.name}</td>
                 <td id="stock-${index}">${product.stock}</td>
-                <td id="supplier-price-${index}">${product.supplierPrice}</td>
-                <td>${product.customerPrice}</td>
+                <td id="supplier-price-${index}">$${product.supplierPrice}</td>
+                <td>$${product.customerPrice}</td>
             `;
             productList.appendChild(row);
         });
@@ -36,12 +36,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Update stock and supplier price
         product.stock += parseInt(quantity);
-        product.supplierPrice = parseFloat(price); // Update supplier price
+        product.supplierPrice = parseFloat(price);
         updateProductList();
 
         // Add transaction entry
         const listItem = document.createElement("li");
         listItem.textContent = `Supplied ${quantity} units of ${productName} at $${price} each.`;
+        listItem.classList.add("list-group-item");
         supplyTransactionsList.appendChild(listItem);
     }
 
@@ -63,6 +64,26 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             alert("Please enter valid values!");
         }
+    });
+
+    // Handle navigation between tabs
+    document.querySelectorAll(".nav-link").forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            let selectedTab = this.getAttribute("data-tab");
+
+            // Hide all sections
+            document.querySelectorAll(".content-tab").forEach(tab => {
+                tab.classList.remove("active");
+            });
+
+            // Show the selected section
+            document.getElementById(selectedTab).classList.add("active");
+
+            // Update active link
+            document.querySelectorAll(".nav-link").forEach(nav => nav.classList.remove("active"));
+            this.classList.add("active");
+        });
     });
 
     updateProductList();
