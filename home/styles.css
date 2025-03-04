@@ -1,83 +1,53 @@
 /* General Styling */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #2c3e50, #4ca1af); /* Soft gradient */
-    color: white;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #2c3e50, #4ca1af);
     margin: 0;
     padding: 0;
+    color: white;
 }
 
-/* Navbar */
+/* Navigation Bar */
 .navbar {
-    background-color: #343a40 !important;
+    background-color: #1c1c1c !important;
 }
 
 .navbar-nav .nav-link {
     color: white !important;
     font-weight: bold;
-    position: relative;
-    transition: color 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Lightsaber Effect */
-.nav-link::after {
-    content: "";
-    display: block;
-    height: 3px;
-    width: 0;
-    background: white;
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+.navbar-nav .nav-link:hover, .nav-link.active {
+    color: #ffffff !important;
+    text-shadow: 0px 0px 10px #ffffff;
 }
 
-.nav-link:hover::after {
-    width: 100%;
-    left: 0;
-}
-
-/* Main Sections */
+/* Sections */
 .container {
     max-width: 900px;
 }
 
-/* Introduction Section */
-.intro-section {
-    padding: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    margin-top: 20px;
-    text-align: center;
-    animation: fadeIn 1s ease-in-out;
+.content-tab {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-.intro-section img {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Buttons */
-.btn-success {
+/* Button Styling */
+.btn-light {
     background-color: white;
     color: black;
     border: none;
-    transition: background 0.3s;
+    transition: all 0.3s ease-in-out;
 }
 
-.btn-success:hover {
-    background-color: #dcdcdc;
-}
-
-.btn-danger {
-    background-color: #ff4d4d;
-    border: none;
-    transition: background 0.3s;
-}
-
-.btn-danger:hover {
-    background-color: #cc0000;
+.btn-light:hover {
+    background-color: #e0e0e0;
 }
 
 /* Table Styling */
@@ -88,29 +58,4 @@ body {
 .table th {
     background-color: #343a40;
     color: white;
-}
-
-/* Fade In Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        max-width: 100%;
-        padding: 10px;
-    }
-
-    .navbar-nav {
-        flex-direction: column;
-        text-align: center;
-    }
 }
