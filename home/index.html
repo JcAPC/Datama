@@ -7,47 +7,80 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>Products</h2>
-    <div class="tab-container">
-        <button class="tab-button active" data-target="supplier-prices">Supplier Prices</button>
-        <button class="tab-button" data-target="customer-prices">Customer Prices</button>
-    </div>
-    <div id="supplier-prices" class="tab-content active">
-        <table>
-            <thead>
-                <tr><th>Product</th><th>Supplier Price (₱)</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Example Product 1</td><td>₱100</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <div id="customer-prices" class="tab-content">
-        <table>
-            <thead>
-                <tr><th>Product</th><th>Customer Price (₱)</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Example Product 2</td><td>₱150</td></tr>
-            </tbody>
-        </table>
-    </div>
+    <!-- Navigation Tabs -->
+    <nav>
+        <button class="nav-button active" data-target="home">Home</button>
+        <button class="nav-button" data-target="orders">Orders</button>
+        <button class="nav-button" data-target="supply">Supply</button>
+        <button class="nav-button" data-target="products">Products</button>
+        <button class="nav-button" data-target="transactions">Transactions</button>
+    </nav>
 
-    <h2>Transactions</h2>
-    <div class="tab-container">
-        <button class="tab-button active" data-target="customer-receipts">Customer Receipts</button>
-        <button class="tab-button" data-target="supply-transactions">Supply Transactions</button>
-    </div>
-    <div id="customer-receipts" class="tab-content active">
-        <ul>
-            <li>Receipt #001 - ₱500</li>
-        </ul>
-    </div>
-    <div id="supply-transactions" class="tab-content">
-        <ul>
-            <li>Transaction #A12 - ₱300</li>
-        </ul>
-    </div>
+    <!-- Home Section -->
+    <section id="home" class="section-content active">
+        <h2>Welcome to the System</h2>
+        <p>This is the home page.</p>
+    </section>
+
+    <!-- Orders Section -->
+    <section id="orders" class="section-content">
+        <h2>Orders</h2>
+        <p>Order-related content will go here.</p>
+    </section>
+
+    <!-- Supply Section -->
+    <section id="supply" class="section-content">
+        <h2>Supply</h2>
+        <p>Supply-related content will go here.</p>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section-content">
+        <h2>Products</h2>
+        <div class="tab-container">
+            <button class="tab-button active" data-target="supplier-prices">Supplier Prices</button>
+            <button class="tab-button" data-target="customer-prices">Customer Prices</button>
+        </div>
+        <div id="supplier-prices" class="tab-content active">
+            <table>
+                <thead>
+                    <tr><th>Product</th><th>Supplier Price (₱)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Example Product 1</td><td>₱100</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="customer-prices" class="tab-content">
+            <table>
+                <thead>
+                    <tr><th>Product</th><th>Customer Price (₱)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Example Product 2</td><td>₱150</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Transactions Section -->
+    <section id="transactions" class="section-content">
+        <h2>Transactions</h2>
+        <div class="tab-container">
+            <button class="tab-button active" data-target="customer-receipts">Customer Receipts</button>
+            <button class="tab-button" data-target="supply-transactions">Supply Transactions</button>
+        </div>
+        <div id="customer-receipts" class="tab-content active">
+            <ul>
+                <li>Receipt #001 - ₱500</li>
+            </ul>
+        </div>
+        <div id="supply-transactions" class="tab-content">
+            <ul>
+                <li>Transaction #A12 - ₱300</li>
+            </ul>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
