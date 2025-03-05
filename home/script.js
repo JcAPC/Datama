@@ -1,39 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Handle tab switching
-    document.querySelectorAll(".nav-link").forEach(link => {
-        link.addEventListener("click", function () {
-            const tab = this.getAttribute("data-tab");
-            document.querySelectorAll(".content-tab").forEach(section => {
-                section.classList.remove("active");
-            });
-            document.getElementById(tab).classList.add("active");
-        });
-    });
-
-    // Handle transactions tab switching
-    const transactionTabs = document.querySelectorAll("#transactionTabs .nav-link");
-    transactionTabs.forEach(tab => {
-        tab.addEventListener("click", function () {
-            document.querySelectorAll("#transactions .tab-pane").forEach(pane => {
-                pane.classList.remove("show", "active");
-            });
-            document.querySelector(this.getAttribute("href")).classList.add("show", "active");
-        });
-    });
-
-    // Handle products tab switching
-    const productTabs = document.querySelectorAll("#productTabs .nav-link");
-    productTabs.forEach(tab => {
-        tab.addEventListener("click", function () {
-            document.querySelectorAll("#products .tab-pane").forEach(pane => {
-                pane.classList.remove("show", "active");
-            });
-            document.querySelector(this.getAttribute("href")).classList.add("show", "active");
+    // Enable Bootstrap tab functionality
+    const triggerTabList = document.querySelectorAll('[data-bs-toggle="tab"]');
+    triggerTabList.forEach(triggerEl => {
+        triggerEl.addEventListener("click", function (event) {
+            event.preventDefault();
+            const tab = new bootstrap.Tab(triggerEl);
+            tab.show();
         });
     });
 
     // Adding a new row to order list
-    document.getElementById("add-row-btn").addEventListener("click", function () {
+    document.getElementById("add-row-btn")?.addEventListener("click", function () {
         const tableBody = document.getElementById("order-list");
         const newRow = document.createElement("tr");
         newRow.innerHTML = `
@@ -51,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Handle adding supply transactions
-    document.getElementById("supply-form").addEventListener("submit", function (e) {
+    document.getElementById("supply-form")?.addEventListener("submit", function (e) {
         e.preventDefault();
         const product = document.getElementById("supply-product").value;
         const quantity = document.getElementById("supply-quantity").value;
