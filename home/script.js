@@ -1,14 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("JavaScript Loaded");
+    const tabs = document.querySelectorAll(".tab-button");
 
-    // Bootstrap automatically handles tab switching, so no extra code is needed.
-    // This script ensures everything works when dynamically adding elements.
+    tabs.forEach(tab => {
+        tab.addEventListener("click", function () {
+            const targetId = this.getAttribute("data-target");
 
-    document.querySelectorAll('[data-bs-toggle="tab"]').forEach(tab => {
-        tab.addEventListener("click", function (event) {
-            event.preventDefault();
-            const target = new bootstrap.Tab(tab);
-            target.show();
+            // Hide all tab contents
+            document.querySelectorAll(".tab-content").forEach(content => {
+                content.classList.remove("active");
+            });
+
+            // Remove active class from all buttons
+            tabs.forEach(btn => btn.classList.remove("active"));
+
+            // Show the selected tab content
+            document.getElementById(targetId).classList.add("active");
+
+            // Mark the clicked tab as active
+            this.classList.add("active");
         });
     });
 });
