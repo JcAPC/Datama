@@ -1,122 +1,40 @@
-/* General Styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #2c3e50, #4ca1af);
-    margin: 0;
-    padding: 0;
-    color: white;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
 }
 
-/* Navigation Bar */
 .navbar {
-    background-color: #1c1c1c !important;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-nav {
-    margin: auto;
-    justify-content: center;
-}
-
-.navbar-nav .nav-link {
-    color: white !important;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-}
-
-.navbar-nav .nav-link:hover, .nav-link.active {
-    color: #ffffff !important;
-    text-shadow: 0px 0px 10px #ffffff;
-}
-
-/* Tabs */
 .content-tab {
     display: none;
-    animation: fadeIn 0.5s ease-in-out;
-    background: white;
-    color: black;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Show active tab */
 .content-tab.active {
     display: block;
 }
 
-/* Home Page */
-#home {
-    display: block;
-    text-align: center;
-}
-
-/* Order Section */
-.table {
-    text-align: center;
+button {
     margin-top: 10px;
-    background: white;
 }
 
-.table th {
-    background-color: #343a40;
+/* Styling for Transactions Tabs */
+.transaction-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.transaction-tabs button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
     color: white;
-}
-
-.order-product, .order-amount {
-    width: 100%;
-}
-
-/* Buttons */
-.btn-light {
-    background-color: white;
-    color: black;
-    border: none;
-    transition: all 0.3s ease-in-out;
-}
-
-.btn-light:hover {
-    background-color: #e0e0e0;
-}
-
-/* Supply Transactions */
-#supply-transactions {
-    margin-top: 15px;
-}
-
-.list-group-item {
-    background: white;
-    color: black;
-    border: 1px solid #ddd;
-    margin: 5px 0;
-    padding: 10px;
-}
-
-/* Centering Content */
-.container {
-    max-width: 900px;
-    margin: auto;
-}
-
-/* Form Styling */
-.form-control {
+    cursor: pointer;
     border-radius: 5px;
-    border: 1px solid #ddd;
-    padding: 10px;
 }
 
-.btn-success {
-    background-color: #28a745;
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-}
-
-.btn-success:hover {
-    background-color: #218838;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+.transaction-tabs button.active {
+    background-color: #0056b3;
 }
