@@ -10,84 +10,75 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Navbar -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a href="#" class="navbar-brand fst-italic text-white">SXYPAG</a>
-                <ul class="navbar-nav mx-auto d-flex flex-row gap-4">
-                    <li class="nav-item"><a class="nav-link active" href="#" data-tab="home">HOME</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-tab="order">ORDER</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-tab="transactions">TRANSACTIONS</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-tab="supply">SUPPLY</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-tab="products">PRODUCTS</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container mt-4">
-        <!-- Products Section -->
-        <section id="products" class="content-tab">
-            <h2>Products</h2>
-            <ul class="nav nav-tabs" id="productTabs">
-                <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#supplierPrices">Supplier Prices</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#customerPrices">Customer Prices</a>
-                </li>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand fst-italic text-white" data-tab="home">SXYPAG</a>
+            <ul class="navbar-nav mx-auto d-flex flex-row gap-4">
+                <li class="nav-item"><a class="nav-link active" href="#" data-tab="home">HOME</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" data-tab="order">ORDER</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" data-tab="transactions">TRANSACTIONS</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" data-tab="supply">SUPPLY</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" data-tab="products">PRODUCTS</a></li>
             </ul>
-            <div class="tab-content mt-3">
-                <div id="supplierPrices" class="tab-pane fade show active">
-                    <table class="table table-bordered">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>Product</th>
-                                <th>Stock</th>
-                                <th>Supplier Price (₱)</th>
-                            </tr>
-                        </thead>
-                        <tbody id="supplier-price-list"></tbody>
-                    </table>
-                </div>
-                <div id="customerPrices" class="tab-pane fade">
-                    <table class="table table-bordered">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>Product</th>
-                                <th>Customer Price (₱)</th>
-                            </tr>
-                        </thead>
-                        <tbody id="customer-price-list"></tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
+        </div>
+    </nav>
+</header>
 
-        <!-- Transactions Section -->
-        <section id="transactions" class="content-tab">
-            <h2>Transactions</h2>
-            <ul class="nav nav-tabs" id="transactionTabs">
-                <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#customerReceipts">Customer Receipts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#supplyTransactions">Supply Transactions</a>
-                </li>
-            </ul>
-            <div class="tab-content mt-3">
-                <div id="customerReceipts" class="tab-pane fade show active">
-                    <ul id="customer-receipts"></ul>
-                </div>
-                <div id="supplyTransactions" class="tab-pane fade">
-                    <ul id="supply-transactions"></ul>
-                </div>
-            </div>
-        </section>
-    </main>
+<main class="container mt-4">
+    <section id="home" class="content-tab active">
+        <h1>Welcome to SXYPAG Order System</h1>
+        <p>Manage orders, track transactions, monitor supply, and browse products efficiently.</p>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <section id="transactions" class="content-tab">
+        <h2>Transactions</h2>
+        <div class="tab-content">
+            <div class="page" id="customerReceiptsPage">
+                <h3>Customer Receipts</h3>
+                <ul id="customer-receipts"></ul>
+                <button class="btn btn-primary" onclick="showPage('supplyTransactionsPage')">Next</button>
+            </div>
+            <div class="page d-none" id="supplyTransactionsPage">
+                <h3>Supply Transactions</h3>
+                <ul id="supply-transactions"></ul>
+                <button class="btn btn-secondary" onclick="showPage('customerReceiptsPage')">Previous</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="content-tab">
+        <h2>Products</h2>
+        <div class="tab-content">
+            <div class="page" id="supplierPricesPage">
+                <h3>Supplier Prices</h3>
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Product</th>
+                            <th>Stock</th>
+                            <th>Supplier Price (₱)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="supplier-price-list"></tbody>
+                </table>
+                <button class="btn btn-primary" onclick="showPage('customerPricesPage')">Next</button>
+            </div>
+            <div class="page d-none" id="customerPricesPage">
+                <h3>Customer Prices</h3>
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Product</th>
+                            <th>Customer Price (₱)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customer-price-list"></tbody>
+                </table>
+                <button class="btn btn-secondary" onclick="showPage('supplierPricesPage')">Previous</button>
+            </div>
+        </div>
+    </section>
+</main>
 </body>
 </html>
