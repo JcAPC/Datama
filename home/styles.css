@@ -37,19 +37,19 @@ button:hover {
 }
 
 .nav-tabs .nav-link.active {
-    background-color: #007bff; /* Bootstrap primary color */
+    background-color: #007bff;
     color: white;
     border-color: #007bff;
 }
 
 .nav-tabs .nav-link {
-    color: #495057; /* Bootstrap text color */
-    border: 1px solid #dee2e6; /* Bootstrap border color */
-    border-bottom: none; /* Remove bottom border for tab effect */
+    color: #495057;
+    border: 1px solid #dee2e6;
+    border-bottom: none;
 }
 
 .nav-tabs {
-    border-bottom: 1px solid #dee2e6; /* Add bottom border to tab container */
+    border-bottom: 1px solid #dee2e6;
 }
 
 .nav-tabs .nav-item:first-child .nav-link {
@@ -64,7 +64,7 @@ button:hover {
 
 .tab-content {
     border: 1px solid #dee2e6;
-    border-top: none; /* Remove top border to connect with tabs */
+    border-top: none;
     padding: 1rem;
 }
 
@@ -74,15 +74,4 @@ button:hover {
     border: 1px solid #c3e6cb;
     padding: 10px;
     border-radius: 5px;
-}
-
-/* Specific styling for transaction and product tabs */
-.transaction-tab,
-.product-tab {
-    display: none;
-}
-
-.transaction-tab.active,
-.product-tab.active {
-    display: block;
 }

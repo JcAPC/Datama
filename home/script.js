@@ -1,5 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // ... (rest of the tab switching and order form code)
+    // Handle tab switching
+    document.querySelectorAll(".nav-link[data-tab]").forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            const tab = this.getAttribute("data-tab");
+            // Hide all content tabs
+            document.querySelectorAll(".content-tab").forEach(section => {
+                section.classList.remove("active");
+            });
+            // Show the selected content tab
+            document.getElementById(tab).classList.add("active");
+
+            // Deactivate all nav-links
+            document.querySelectorAll(".nav-link[data-tab]").forEach(navLink => {
+                navLink.classList.remove("active");
+            });
+            // Activate the clicked nav-link
+            this.classList.add("active");
+        });
+    });
 
     // Transaction tab switching
     document.querySelectorAll('[data-transaction-tab]').forEach(link => {
@@ -25,6 +44,27 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // Order form submission
+    const orderForm = document.getElementById("order-form");
+    const orderConfirmation = document.getElementById("order-confirmation");
+    const orderTotalDisplay = document.getElementById("order-total");
+
+    orderForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const product = document.getElementById("product").value;
+        const quantity = parseInt(document.getElementById("quantity").value);
+
+        const prices = {
+            Softdrink: 20,
+            Lpg: 500,
+            Junkfood: 50,
+        };
+
+        const total = prices[product] * quantity;
+        orderTotalDisplay.textContent = `₱${total.toFixed(2)}`;
+        orderConfirmation.style.display = "block";
+    });
+
     // Example data population
     const prices = [
         { product: "Softdrink", stock: 100, price: 15 },
@@ -43,12 +83,21 @@ document.addEventListener("DOMContentLoaded", function () {
     prices.forEach(item => {
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td><span class="math-inline">\{item\.product\}</td\>
-<td\></span>{item.stock}</td>
+            <td>${item.product}</td>
+            <td>${item.stock}</td>
             <td>₱${item.price.toFixed(2)}</td>
         `;
         priceTableBody.appendChild(row);
     });
 
     // Populate customer prices
-    const customerPrice
+    const customerPriceTableBody = document.getElementById("customer-price-list");
+    customerPrices.forEach(item => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${item.product}</td>
+            <td>₱${item.price.toFixed(2)}</td>
+        `;
+        customerPriceTableBody.appendChild(row);
+    });
+});
