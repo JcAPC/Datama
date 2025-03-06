@@ -35,3 +35,43 @@ button:hover {
 .d-none {
     display: none;
 }
+
+.nav-tabs .nav-link.active {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    border-color: #007bff;
+}
+
+.nav-tabs .nav-link {
+    color: #495057; /* Bootstrap text color */
+    border: 1px solid #dee2e6; /* Bootstrap border color */
+    border-bottom: none; /* Remove bottom border for tab effect */
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6; /* Add bottom border to tab container */
+}
+
+.nav-tabs .nav-item:first-child .nav-link {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0;
+}
+
+.nav-tabs .nav-item:last-child .nav-link {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0.25rem;
+}
+
+.tab-content {
+    border: 1px solid #dee2e6;
+    border-top: none; /* Remove top border to connect with tabs */
+    padding: 1rem;
+}
+
+#order-confirmation {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 5px;
+}
