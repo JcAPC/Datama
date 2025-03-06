@@ -75,3 +75,14 @@ button:hover {
     padding: 10px;
     border-radius: 5px;
 }
+
+/* Specific styling for transaction and product tabs */
+.transaction-tab,
+.product-tab {
+    display: none;
+}
+
+.transaction-tab.active,
+.product-tab.active {
+    display: block;
+}

@@ -6,7 +6,8 @@
     <title>SXYPAG Order System</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -56,20 +57,20 @@
             <h2>Transactions</h2>
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" data-transaction-tab="customerReceiptsPage" href="#">Customer Receipts</a>
+                    <a class="nav-link active" data-transaction-tab="customer-receipts" href="#">Customer Receipts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-transaction-tab="supplyTransactionsPage" href="#">Supply Transactions</a>
+                    <a class="nav-link" data-transaction-tab="supply-transactions" href="#">Supply Transactions</a>
                 </li>
             </ul>
             <div class="tab-content mt-2">
-                <div class="page active" id="customerReceiptsPage">
+                <div id="customer-receipts" class="transaction-tab active">
                     <h3>Customer Receipts</h3>
-                    <ul id="customer-receipts"></ul>
+                    <ul id="customer-receipts-list"></ul>
                 </div>
-                <div class="page d-none" id="supplyTransactionsPage">
+                <div id="supply-transactions" class="transaction-tab d-none">
                     <h3>Supply Transactions</h3>
-                    <ul id="supply-transactions"></ul>
+                    <ul id="supply-transactions-list"></ul>
                 </div>
             </div>
         </section>
@@ -95,27 +96,27 @@
             <h2>Products</h2>
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" data-product-tab="supplierPricesPage" href="#">Supplier Prices</a>
+                    <a class="nav-link active" data-product-tab="prices" href="#">Prices</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-product-tab="customerPricesPage" href="#">Customer Prices</a>
+                    <a class="nav-link" data-product-tab="customer-prices" href="#">Customer Prices</a>
                 </li>
             </ul>
             <div class="tab-content mt-2">
-                <div class="page active" id="supplierPricesPage">
-                    <h3>Supplier Prices</h3>
+                <div id="prices" class="product-tab active">
+                    <h3>Prices</h3>
                     <table class="table table-bordered">
                         <thead class="table-dark">
                             <tr>
                                 <th>Product</th>
                                 <th>Stock</th>
-                                <th>Supplier Price (₱)</th>
+                                <th>Price (₱)</th>
                             </tr>
                         </thead>
-                        <tbody id="supplier-price-list"></tbody>
+                        <tbody id="price-list"></tbody>
                     </table>
                 </div>
-                <div class="page d-none" id="customerPricesPage">
+                <div id="customer-prices" class="product-tab d-none">
                     <h3>Customer Prices</h3>
                     <table class="table table-bordered">
                         <thead class="table-dark">
