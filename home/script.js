@@ -2,12 +2,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Handle tab switching
     document.querySelectorAll(".nav-link[data-tab]").forEach(link => {
         link.addEventListener("click", function (event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent default link behavior
             const tab = this.getAttribute("data-tab");
+
             // Hide all content tabs
             document.querySelectorAll(".content-tab").forEach(section => {
                 section.classList.remove("active");
             });
+
             // Show the selected content tab
             document.getElementById(tab).classList.add("active");
 
@@ -15,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll(".nav-link[data-tab]").forEach(navLink => {
                 navLink.classList.remove("active");
             });
+
             // Activate the clicked nav-link
             this.classList.add("active");
         });
